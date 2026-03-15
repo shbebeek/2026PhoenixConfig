@@ -1,0 +1,86 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.806092122395832,
+        "y": 3.5912287830171135
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 7.231305164155506,
+        "y": 3.0785850888206845
+      },
+      "isLocked": false,
+      "linkedName": "Center(Bottom)"
+    },
+    {
+      "anchor": {
+        "x": 6.019486025855655,
+        "y": 0.6544370233444943
+      },
+      "prevControl": {
+        "x": 7.189808349609375,
+        "y": 0.8805283900669645
+      },
+      "nextControl": {
+        "x": 5.001408701613517,
+        "y": 0.4577574514050472
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.0903410993303573,
+        "y": 1.081334228515625
+      },
+      "prevControl": {
+        "x": 3.5384439241042602,
+        "y": 0.3753790428652253
+      },
+      "nextControl": {
+        "x": 2.6422382745564543,
+        "y": 1.787289414166026
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.599484034267913,
+        "y": 4.030364339953271
+      },
+      "prevControl": {
+        "x": 2.6977017066592257,
+        "y": 3.4750478980654766
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Hub (Forward)"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -179.1363366844706
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 91.93949562349178
+  },
+  "useDefaultConstraints": true
+}
