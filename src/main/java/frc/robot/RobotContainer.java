@@ -7,6 +7,7 @@ package frc.robot;
 import static edu.wpi.first.units.Units.*;
 
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
+import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 
@@ -79,7 +80,7 @@ public class RobotContainer {
         }
 
         // have autoChooser pull all PathPlanner autos as options
-        autoChooser = new SendableChooser<>();
+        autoChooser = AutoBuilder.buildAutoChooser();
 
         // set default auto (do nothing)
         autoChooser.setDefaultOption("Do Nothing", Commands.none());
@@ -110,20 +111,20 @@ public class RobotContainer {
             drivetrain.applyRequest(() -> idle).ignoringDisable(true)
         );
 
-        joystick.a().whileTrue(drivetrain.applyRequest(() -> brake));
+        /*joystick.a().whileTrue(drivetrain.applyRequest(() -> brake));
         joystick.b().whileTrue(drivetrain.applyRequest(() ->
             point.withModuleDirection(new Rotation2d(-joystick.getLeftY(), -joystick.getLeftX()))
-        ));
+        ));*/
 
         // Run SysId routines when holding back/start and X/Y.
         // Note that each routine should be run exactly once in a single log.
-        joystick.back().and(joystick.y()).whileTrue(drivetrain.sysIdDynamic(Direction.kForward));
+        /*joystick.back().and(joystick.y()).whileTrue(drivetrain.sysIdDynamic(Direction.kForward));
         joystick.back().and(joystick.x()).whileTrue(drivetrain.sysIdDynamic(Direction.kReverse));
         joystick.start().and(joystick.y()).whileTrue(drivetrain.sysIdQuasistatic(Direction.kForward));
         joystick.start().and(joystick.x()).whileTrue(drivetrain.sysIdQuasistatic(Direction.kReverse));
-
+*/
         // Reset the field-centric heading on left bumper press.
-        joystick.leftBumper().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
+        joystick.back().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
 
         drivetrain.registerTelemetry(logger::telemeterize);
 
@@ -151,6 +152,7 @@ public class RobotContainer {
             // Finally idle for the rest of auton
             drivetrain.applyRequest(() -> idle)
         );*/
+        
         return autoChooser.getSelected();
         // return new PathPlannerAuto("Basic Auto");
     }
@@ -189,13 +191,25 @@ public class RobotContainer {
         NamedCommands.registerCommand("climbDown", superstructure.moveClimberDown().withName("Auto.ClimbDown"));
         
         NamedCommands.registerCommand("deployIntake", superstructure.setIntakeDeployAndRoll().withName("Auto.DeployIntake"));
+        NamedCommands.registerCommand("stopIntake", superstructure.stopIntakeCommand().withName("Auto.StopIntake"));
         NamedCommands.registerCommand("retractIntake", superstructure.setIntakeStow().withName("Auto.StowIntake"));
         NamedCommands.registerCommand("bounceIntake", superstructure.intakeBounceCommand().withName("Auto.BounceIntake"));
         NamedCommands.registerCommand("eject", superstructure.ejectAllCommand().withName("Auto.Eject"));
 
         NamedCommands.registerCommand("centerTurret", superstructure.setTurretForward().withName("Auto.CenterTurret"));
+        
         NamedCommands.registerCommand("manualShoot", superstructure.shootCommand().withName("Auto.ManualShoot"));
+        NamedCommands.registerCommand("shootMiddle", superstructure.shootMiddleCommand().withName("Auto.ManualShoot"));
+        NamedCommands.registerCommand("shootClose", superstructure.shootCloseCommand().withName("Auto.ManualShoot"));
+        NamedCommands.registerCommand("shootFar", superstructure.shootFarCommand().withName("Auto.ManualShoot"));
+        NamedCommands.registerCommand("shootReallyFar", superstructure.shootReallyFarCommand().withName("Auto.ManualShoot"));
+
 
         //NamedCommands.registerCommand("shootOnTheMove", new ShootOnTheMoveCommand(drivebase,superstructure,() -> superstructure.getAimPoint()).ignoringDisable(true).withName("Auto.Eject"));
+        
+        NamedCommands.registerCommand("turnTurretLeft", superstructure.turnTurretLeftAuto());
+        NamedCommands.registerCommand("turnTurretRight", superstructure.turnTurretRightAuto());
+        NamedCommands.registerCommand("autoDeploy", superstructure.autoDeploy());
+        NamedCommands.registerCommand("autoRetract", superstructure.autoRetract());
     }
 }

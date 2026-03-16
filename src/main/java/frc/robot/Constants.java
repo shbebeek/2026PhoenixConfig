@@ -88,6 +88,10 @@ public final class Constants {
     public static final AngularVelocity SHOOTER_TOLERANCE = RPM.of(100);
 
     public static final int SHOOTER_SPEED = 3000; // this is set to 5500 in main
+    public static final int SHOOTER_SPEED_FAR = 3500;
+    public static final int SHOOTER_SPEED_MIDDLE = 2500;
+    public static final int SHOOTER_SPEED_CLOSE = 2000;
+    public static final int SHOOTER_SPEED_REALLY_FAR = 4000;
   }
 
   public static final class ClimberConstants {

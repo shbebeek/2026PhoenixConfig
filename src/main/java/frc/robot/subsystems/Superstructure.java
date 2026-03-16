@@ -288,14 +288,29 @@ public class Superstructure extends SubsystemBase{
         return intake.stowIntake().withName("Superstructure.SetIntakeStow");
     }
 
-    // shoot - spins up shooter
+    // shoot - spins up shooter at tower speed
     public Command shootCommand(){
-        return shooter.spinUp().withName("Superstructure.Shoot");
+        return shooter.spinUp(-Constants.ShooterConstants.SHOOTER_SPEED).withName("Superstructure.Shoot");
     }
 
-    // shoot slow
-    public Command shootSlowCommand(){
-        return shooter.spinUpSlow().withName("Superstructure.ShootSlow");
+    // shoot between tower and hub
+    public Command shootMiddleCommand(){
+        return shooter.spinUp(-Constants.ShooterConstants.SHOOTER_SPEED_MIDDLE).withName("Superstructure.ShootSlow");
+    }
+
+    // shoot close to hub
+    public Command shootCloseCommand(){
+        return shooter.spinUp(-Constants.ShooterConstants.SHOOTER_SPEED_CLOSE).withName("Superstructure.ShootSlow");
+    }
+
+    // shoot past tower
+    public Command shootFarCommand(){
+        return shooter.spinUp(-Constants.ShooterConstants.SHOOTER_SPEED_FAR).withName("Superstructure.ShootSlow");
+    }
+
+    // just in case
+    public Command shootReallyFarCommand(){
+        return shooter.spinUp(-Constants.ShooterConstants.SHOOTER_SPEED_REALLY_FAR).withName("Superstructure.ShootSlow");
     }
 
     // re-zero both intake pivot and turret
@@ -353,5 +368,23 @@ public class Superstructure extends SubsystemBase{
 
     public LinearVelocity getTangentialVelocity(){
         return shooter.getTangentialVelocity();
+    }
+
+    // auto commands
+    public Command autoDeploy(){
+        return intake.deployIntake().withTimeout(3.0);
+    }
+
+    public Command autoRetract(){
+        return intake.returnIntake().withTimeout(2.0);
+    }
+
+    // motor is inverted and i didn't update it in constants so turret is reversed
+    public Command turnTurretLeftAuto(){
+        return rotateTurretRight().withTimeout(1.0);
+    }
+
+    public Command turnTurretRightAuto(){
+        return rotateTurretLeft().withTimeout(1.0);
     }
 }
