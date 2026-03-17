@@ -332,7 +332,7 @@ public class Superstructure extends SubsystemBase{
     @Override
     public void periodic(){
         // superstructure doesn't need periodic updates since subsystems update on their own
-        String shooterOut = "S:" + isShooterAtSpeed.getAsBoolean() + "(" + Math.round(shooter.getSpeed().in(RPM))
+        /*String shooterOut = "S:" + isShooterAtSpeed.getAsBoolean() + "(" + Math.round(shooter.getSpeed().in(RPM))
             + "/" + Math.round(targetShooterSpeed.in(RPM)) + ")";
 
         String turretOut = "T:" + isTurretAtAngle.getAsBoolean() + "(" + Math.round(turret.getRawAngle().in(Degrees))
@@ -344,6 +344,7 @@ public class Superstructure extends SubsystemBase{
         String readyOut = "R:" + isReadyToShoot.getAsBoolean();
 
         System.out.println(shooterOut + " " + turretOut + " " + hoodOut + " " + readyOut);
+        */
     }
 
     // not entirely sure of the use of this function but i'm leaving it in here

@@ -9,6 +9,7 @@ import static edu.wpi.first.units.Units.*;
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
+import com.pathplanner.lib.commands.PathPlannerAuto;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -84,6 +85,7 @@ public class RobotContainer {
 
         // set default auto (do nothing)
         autoChooser.setDefaultOption("Do Nothing", Commands.none());
+        autoChooser.addOption("No Driving Test", new PathPlannerAuto("No Driving Test"));
 
         // add a simple auto option to have the robot drive backward for 1 second then stop
         //autoChooser.addOption("Drive Backward", drivebase.driveBackwards().withTimeout(1));
@@ -190,7 +192,7 @@ public class RobotContainer {
         NamedCommands.registerCommand("climbUp", superstructure.moveClimberUp().withName("Auto.ClimbUp"));
         NamedCommands.registerCommand("climbDown", superstructure.moveClimberDown().withName("Auto.ClimbDown"));
         
-        NamedCommands.registerCommand("deployIntake", superstructure.setIntakeDeployAndRoll().withName("Auto.DeployIntake"));
+        NamedCommands.registerCommand("deployIntake", superstructure.intakeCommand().withName("Auto.DeployIntake"));
         NamedCommands.registerCommand("stopIntake", superstructure.stopIntakeCommand().withName("Auto.StopIntake"));
         NamedCommands.registerCommand("retractIntake", superstructure.setIntakeStow().withName("Auto.StowIntake"));
         NamedCommands.registerCommand("bounceIntake", superstructure.intakeBounceCommand().withName("Auto.BounceIntake"));
