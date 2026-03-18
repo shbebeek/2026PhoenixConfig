@@ -85,7 +85,6 @@ public class RobotContainer {
 
         // set default auto (do nothing)
         autoChooser.setDefaultOption("Do Nothing", Commands.none());
-        autoChooser.addOption("No Driving Test", new PathPlannerAuto("No Driving Test"));
 
         // add a simple auto option to have the robot drive backward for 1 second then stop
         //autoChooser.addOption("Drive Backward", drivebase.driveBackwards().withTimeout(1));
@@ -183,34 +182,33 @@ public class RobotContainer {
         //NamedCommands.registerCommand("driveForwards", drivebase.driveForward().withTimeout(1).withName("Auto.driveForwards"));
     
         NamedCommands.registerCommand("aimShooting", superstructure.aimCommand(superstructure.getTargetShooterSpeed(), superstructure.getTargetTurretAngle(), superstructure.getTargetHoodAngle()).withName("Auto.AimCommand"));
-        NamedCommands.registerCommand("stopShooting", Commands.runOnce(() -> superstructure.stopAllShootingCommand(), superstructure));
+        NamedCommands.registerCommand("stopShooting", superstructure.stopFeedAuto());
         NamedCommands.registerCommand("aimDynamicShooting", superstructure.aimDynamicCommand(() -> shooter.getSpeed(), () -> turret.getRawAngle(), () -> hood.getAngle()));
         
-        NamedCommands.registerCommand("feedShooter", Commands.runOnce(() -> superstructure.feedAllCommand(), superstructure));
-        NamedCommands.registerCommand("stopFeed", Commands.runOnce(() -> superstructure.stopFeedingAllCommand(), superstructure));
+        NamedCommands.registerCommand("feedShooter", superstructure.feedAuto());
+        NamedCommands.registerCommand("stopFeed", superstructure.stopFeedAuto());
 
         NamedCommands.registerCommand("climbUp", superstructure.moveClimberUp().withName("Auto.ClimbUp"));
         NamedCommands.registerCommand("climbDown", superstructure.moveClimberDown().withName("Auto.ClimbDown"));
         
-        NamedCommands.registerCommand("deployIntake", Commands.runOnce(() -> intake.deployAndRollCommand(), intake));
-        NamedCommands.registerCommand("stopIntake", Commands.runOnce(() -> intake.stopIntake(), intake));
+        NamedCommands.registerCommand("deployIntake", superstructure.intakeAuto());
+        NamedCommands.registerCommand("stopIntake", superstructure.stopIntakeAuto());
         NamedCommands.registerCommand("retractIntake", superstructure.setIntakeStow().withName("Auto.StowIntake"));
         NamedCommands.registerCommand("bounceIntake", superstructure.intakeBounceCommand().withName("Auto.BounceIntake"));
         NamedCommands.registerCommand("eject", superstructure.ejectAllCommand().withName("Auto.Eject"));
 
-        NamedCommands.registerCommand("centerTurret", Commands.runOnce(() -> superstructure.setTurretForward(), superstructure));
-        
-        NamedCommands.registerCommand("manualShoot", Commands.runOnce(() -> superstructure.shootCommand(), superstructure));
-        NamedCommands.registerCommand("shootMiddle", Commands.runOnce(() -> superstructure.shootMiddleCommand(), superstructure));
-        NamedCommands.registerCommand("shootClose", Commands.runOnce(() -> superstructure.shootCloseCommand(), superstructure));
-        NamedCommands.registerCommand("shootFar", Commands.runOnce(() -> superstructure.shootFarCommand(), superstructure));
-        NamedCommands.registerCommand("shootReallyFar", Commands.runOnce(() -> superstructure.shootReallyFarCommand(), superstructure));
+        NamedCommands.registerCommand("centerTurret", superstructure.setTurretForward());
+        NamedCommands.registerCommand("manualShoot", superstructure.shootAuto());
+        NamedCommands.registerCommand("shootMiddle", superstructure.shootMiddleAuto());
+        NamedCommands.registerCommand("shootClose", superstructure.shootCloseAuto());
+        NamedCommands.registerCommand("shootFar", superstructure.shootFarAuto());
+        NamedCommands.registerCommand("shootReallyFar", superstructure.shootReallyFarAuto());
 
         //NamedCommands.registerCommand("shootOnTheMove", new ShootOnTheMoveCommand(drivebase,superstructure,() -> superstructure.getAimPoint()).ignoringDisable(true).withName("Auto.Eject"));
         
-        NamedCommands.registerCommand("turnTurretLeft", Commands.runOnce(() -> superstructure.turnTurretLeftAuto(), superstructure));
-        NamedCommands.registerCommand("turnTurretRight", Commands.runOnce(() -> superstructure.turnTurretRightAuto(), superstructure));
-        NamedCommands.registerCommand("autoDeploy", Commands.runOnce(() -> superstructure.autoDeploy(), superstructure));
-        NamedCommands.registerCommand("autoRetract", Commands.runOnce(() -> superstructure.autoRetract(), superstructure));
+        NamedCommands.registerCommand("turnTurretLeft", superstructure.turnTurretLeftAuto());
+        NamedCommands.registerCommand("turnTurretRight", superstructure.turnTurretRightAuto());
+        NamedCommands.registerCommand("autoDeploy", superstructure.autoDeploy());
+        NamedCommands.registerCommand("autoRetract", superstructure.autoRetract());
     }
 }

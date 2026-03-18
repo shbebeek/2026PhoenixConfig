@@ -3,9 +3,14 @@
   "robotLength": 0.8363,
   "holonomicMode": true,
   "pathFolders": [
-    "Left"
+    "Center To Inside",
+    "Left",
+    "Depot-Outpost",
+    "Trench"
   ],
-  "autoFolders": [],
+  "autoFolders": [
+    "Tests"
+  ],
   "defaultMaxVel": 3.0,
   "defaultMaxAccel": 3.0,
   "defaultMaxAngVel": 540.0,
