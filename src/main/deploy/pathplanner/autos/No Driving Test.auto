@@ -5,25 +5,6 @@
     "data": {
       "commands": [
         {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Simple Forward"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "deployIntake"
-                }
-              }
-            ]
-          }
-        },
-        {
           "type": "path",
           "data": {
             "pathName": "Simple Forward"
@@ -36,6 +17,18 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "shootClose"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "deployIntake"
+          }
+        },
+        {
           "type": "wait",
           "data": {
             "waitTime": 2.0
@@ -45,12 +38,6 @@
           "type": "named",
           "data": {
             "name": "stopIntake"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Simple Forward"
           }
         },
         {

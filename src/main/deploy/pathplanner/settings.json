@@ -3,7 +3,10 @@
   "robotLength": 0.8363,
   "holonomicMode": true,
   "pathFolders": [
-    "Left"
+    "Center To Inside",
+    "Left",
+    "Depot-Outpost",
+    "Trench"
   ],
   "autoFolders": [
     "Doubles",
