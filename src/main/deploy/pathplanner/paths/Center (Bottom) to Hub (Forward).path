@@ -41,7 +41,7 @@
       },
       "nextControl": {
         "x": 1.7782208652367157,
-        "y": 0.8863618941972762
+        "y": 0.8863618941972763
       },
       "isLocked": false,
       "linkedName": null
@@ -60,7 +60,16 @@
       "linkedName": "Hub (Forward)"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 2,
+      "rotationDegrees": 0.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],

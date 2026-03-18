@@ -11,13 +11,57 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "autoDeploy"
+                  "name": "feedShooter"
                 }
               },
               {
+                "type": "named",
+                "data": {
+                  "name": "shootMiddle"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 4.0
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "stopShooting"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "stopFeed"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
                 "type": "path",
                 "data": {
-                  "pathName": "Bottom Trench To Center"
+                  "pathName": "Hub (Middle) To Depot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "autoDeploy"
                 }
               },
               {
@@ -32,7 +76,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Center (Bottom) to Hub (Forward)"
+            "pathName": "Depot To Hub (Forward)"
           }
         },
         {

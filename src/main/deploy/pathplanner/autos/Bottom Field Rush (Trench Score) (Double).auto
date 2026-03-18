@@ -1,0 +1,119 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Bottom Trench To Center"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "deployIntake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "autoDeploy"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Center (Bottom) to Trench (Bottom)"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "feedShooter"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "manualShoot"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 4.0
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "stopFeed"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "stopShooting"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Bottom Trench (Turret) To Center"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Center (Bottom) to Trench (Bottom)"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "feedShooter"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "manualShoot"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Doubles",
+  "choreoAuto": false
+}

@@ -3,48 +3,53 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.745456453305351,
-        "y": 3.639291710388247
+        "x": 4.4310858444940475,
+        "y": 7.464808582124256
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.808313421776335,
-        "y": 2.9151366113369077
+        "x": 5.4310858444940475,
+        "y": 7.464808582124256
       },
       "isLocked": false,
-      "linkedName": "Center(Bottom)"
+      "linkedName": "Top Trench (Turret Position)"
     },
     {
       "anchor": {
-        "x": 7.285330535152151,
-        "y": 1.3570671563483723
+        "x": 7.774867357866043,
+        "y": 6.92509509858631
       },
       "prevControl": {
-        "x": 7.583149196796497,
-        "y": 1.9234935770142942
+        "x": 7.761026785714286,
+        "y": 7.216643357049852
       },
       "nextControl": {
-        "x": 6.892684424766314,
-        "y": 0.6102867844728128
+        "x": 7.810689302869501,
+        "y": 6.1705146111597795
       },
       "isLocked": false,
-      "linkedName": "Bottom of Pile"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 4.421297898065476,
-        "y": 0.6459235491071433
+        "x": 7.774867357866043,
+        "y": 4.569315006814642
       },
       "prevControl": {
-        "x": 5.14010021391369,
-        "y": 0.6943534923735126
+        "x": 7.791512160528274,
+        "y": 5.590161946614583
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Bottom Trench (Turret Position)"
+      "linkedName": "Center (Top)"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": -90.01828190355582
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -58,13 +63,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -90.15084991432975
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 91.93949562349178
+    "rotation": 0.0
   },
   "useDefaultConstraints": true
 }

@@ -63,7 +63,7 @@ public class IntakeSubsystem extends SubsystemBase{
         .withGearing(new MechanismGearing(GearBox.fromReductionStages(5, 5, 6, 60.0 / 18.0)))
         // .withGearing(new MechanismGearing(GearBox.fromReductionStages(5, 5, 60.0 / 18.0, 42)))
         .withMotorInverted(Constants.IntakeConstants.kPivotMotorInverted)
-        .withIdleMode(MotorMode.BRAKE)
+        .withIdleMode(MotorMode.COAST)
         //.withSoftLimit(Degrees.of(0), Degrees.of(150))
         .withStatorCurrentLimit(Amps.of(40))
         .withClosedLoopRampRate(Seconds.of(0.1))

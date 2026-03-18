@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.347174595424107,
-        "y": 0.5167940266927087
+        "x": 3.6069611467633926,
+        "y": 0.6597388276599703
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.495623256138393,
-        "y": 0.520311569940477
+        "x": 2.7554098074776783,
+        "y": 0.6632563709077386
       },
       "isLocked": false,
-      "linkedName": "Bottom Trench"
+      "linkedName": "Bottom Trench (Intake Reversed)"
     },
     {
       "anchor": {
-        "x": 0.6670596749441964,
-        "y": 0.659483933221727
+        "x": 0.7916520763578867,
+        "y": 0.6634093075706846
       },
       "prevControl": {
-        "x": 1.6631252077204275,
-        "y": 0.6594839332217272
+        "x": 1.7877176091341178,
+        "y": 0.6634093075706847
       },
       "nextControl": null,
       "isLocked": false,
@@ -48,7 +48,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 179.73820648465406
   },
   "useDefaultConstraints": true
 }

@@ -1,0 +1,125 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Hub (Middle) To Depot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "deployIntake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "autoDeploy"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Depot To Hub (Forward)"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "feedShooter"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "manualShoot"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 4.0
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "stopFeed"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "stopShooting"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Hub (Forward) to Outpost"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 3.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Outpost to Hub (Forward)"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "feedShooter"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "manualShoot"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Doubles",
+  "choreoAuto": false
+}

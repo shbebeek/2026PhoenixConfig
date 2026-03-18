@@ -5,9 +5,28 @@
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Top Trench To Center"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Top Trench To Center"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "deployIntake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "autoDeploy"
+                }
+              }
+            ]
           }
         },
         {
@@ -15,11 +34,30 @@
           "data": {
             "pathName": "Center (Top) to Hub (Forward)"
           }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "feedShooter"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "shootMiddle"
+                }
+              }
+            ]
+          }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "Simple Autos",
   "choreoAuto": false
 }

@@ -53,11 +53,67 @@
               }
             ]
           }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 4.0
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "stopFeed"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "stopShooting"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Top Trench (Turret) To Center"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Center (Top) to Trench (Top)"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "feedShooter"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "manualShoot"
+                }
+              }
+            ]
+          }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Simple Autos",
+  "folder": "Doubles",
   "choreoAuto": false
 }

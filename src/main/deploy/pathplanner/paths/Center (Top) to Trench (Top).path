@@ -32,16 +32,16 @@
     },
     {
       "anchor": {
-        "x": 4.317708798363095,
-        "y": 7.516399216424851
+        "x": 4.4310858444940475,
+        "y": 7.464808582124256
       },
       "prevControl": {
-        "x": 5.522304938099371,
-        "y": 7.425938470103754
+        "x": 5.635681984230323,
+        "y": 7.3743478358031584
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Top Trench"
+      "linkedName": "Top Trench (Turret Position)"
     }
   ],
   "rotationTargets": [],
