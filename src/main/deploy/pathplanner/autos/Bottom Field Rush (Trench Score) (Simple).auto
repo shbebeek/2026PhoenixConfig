@@ -5,6 +5,18 @@
     "data": {
       "commands": [
         {
+          "type": "named",
+          "data": {
+            "name": "autoDeploy"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "autoPivotStop"
+          }
+        },
+        {
           "type": "parallel",
           "data": {
             "commands": [
@@ -12,12 +24,6 @@
                 "type": "path",
                 "data": {
                   "pathName": "Bottom Trench To Center"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "autoDeploy"
                 }
               },
               {

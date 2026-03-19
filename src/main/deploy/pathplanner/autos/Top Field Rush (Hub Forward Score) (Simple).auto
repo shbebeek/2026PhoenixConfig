@@ -5,6 +5,18 @@
     "data": {
       "commands": [
         {
+          "type": "named",
+          "data": {
+            "name": "autoDeploy"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "autoPivotStop"
+          }
+        },
+        {
           "type": "parallel",
           "data": {
             "commands": [
@@ -19,12 +31,6 @@
                 "data": {
                   "name": "deployIntake"
                 }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "autoDeploy"
-                }
               }
             ]
           }
@@ -33,6 +39,12 @@
           "type": "path",
           "data": {
             "pathName": "Center (Top) to Hub (Forward)"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "stopIntake"
           }
         },
         {
@@ -48,10 +60,16 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "shootMiddle"
+                  "name": "manualShoot"
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "stopShooting"
           }
         }
       ]

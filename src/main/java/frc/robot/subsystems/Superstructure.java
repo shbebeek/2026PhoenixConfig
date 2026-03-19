@@ -382,11 +382,15 @@ public class Superstructure extends SubsystemBase{
     }
 
     public Command intakeAuto(){
-        return intake.intakeCommand().withTimeout(1);
+        return intake.intakeCommand().withTimeout(0.1);
     }
 
     public Command stopIntakeAuto(){
-        return intake.stopIntake().withTimeout(1);
+        return intake.stopIntake().withTimeout(0.1);
+    }
+
+    public Command stopIntakPivotAuto(){
+        return stopIntakePivot().withTimeout(0.1);
     }
 
     // turret motor is inverted and i didn't update it in constants so turret is reversed
@@ -400,31 +404,31 @@ public class Superstructure extends SubsystemBase{
 
     // shooter
     public Command shootCloseAuto(){
-        return shootCloseCommand().withTimeout(0.5);
+        return shootCloseCommand().withTimeout(0.1);
     }
 
     public Command shootMiddleAuto(){
-        return shootMiddleCommand().withTimeout(0.5);
+        return shootMiddleCommand().withTimeout(0.1);
     }
 
     public Command shootAuto(){
-        return shootCommand().withTimeout(0.5);
+        return shootCommand().withTimeout(0.1);
     }
 
     public Command shootFarAuto(){
-        return shootFarCommand().withTimeout(0.5);
+        return shootFarCommand().withTimeout(0.1);
     }
 
     public Command shootReallyFarAuto(){
-        return shootReallyFarCommand().withTimeout(0.5);
+        return shootReallyFarCommand().withTimeout(0.1);
     }
 
     // feeder/hopper
     public Command stopFeedAuto(){
-        return Commands.parallel(stopFeedingAllCommand(),stopAllShootingCommand()).withTimeout(1);
+        return Commands.parallel(stopFeedingAllCommand(),stopAllShootingCommand()).withTimeout(0.1);
     }
 
     public Command feedAuto(){
-        return feedAllCommand().withTimeout(1);
+        return feedAllCommand().withTimeout(8);
     }
 }

@@ -210,5 +210,7 @@ public class RobotContainer {
         NamedCommands.registerCommand("turnTurretRight", superstructure.turnTurretRightAuto());
         NamedCommands.registerCommand("autoDeploy", superstructure.autoDeploy());
         NamedCommands.registerCommand("autoRetract", superstructure.autoRetract());
+
+        NamedCommands.registerCommand("autoPivotStop", superstructure.stopIntakPivotAuto());
     }
 }

@@ -9,6 +9,18 @@
           "data": {
             "pathName": "Simple Forward"
           }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "autoDeploy"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "autoPivotStop"
+          }
         }
       ]
     }

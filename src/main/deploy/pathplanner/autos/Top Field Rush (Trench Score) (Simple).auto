@@ -5,6 +5,18 @@
     "data": {
       "commands": [
         {
+          "type": "named",
+          "data": {
+            "name": "autoDeploy"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "autoPivotStop"
+          }
+        },
+        {
           "type": "parallel",
           "data": {
             "commands": [
@@ -18,12 +30,6 @@
                 "type": "named",
                 "data": {
                   "name": "deployIntake"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "autoDeploy"
                 }
               }
             ]
@@ -52,6 +58,12 @@
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "stopShooting"
           }
         }
       ]
