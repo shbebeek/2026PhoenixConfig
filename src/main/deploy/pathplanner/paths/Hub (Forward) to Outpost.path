@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.839486447931526,
-        "y": 4.287303851640513
+        "x": 1.4772039942938655,
+        "y": 4.753095577746078
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.6487557851293868,
-        "y": 3.3558141977921525
+        "x": 1.2864733314917263,
+        "y": 3.821605923897717
       },
       "isLocked": false,
       "linkedName": "Hub (Forward)"
@@ -48,7 +48,7 @@
   "folder": "Depot-Outpost",
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -179.1363366844706
+    "rotation": 166.82744657667317
   },
   "useDefaultConstraints": true
 }

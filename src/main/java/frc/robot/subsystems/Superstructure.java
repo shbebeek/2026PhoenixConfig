@@ -219,7 +219,10 @@ public class Superstructure extends SubsystemBase{
 
     // eject while held
     public Command ejectCommand(){
-        return intake.ejectCommand().withName("Supersctructure.IntakeEject");
+        return Commands.parallel(
+            intake.ejectCommand(),
+            hopperEjectCommand()
+        ).withName("Supersctructure.IntakeEject");
     }
 
     // run hopper forward while held

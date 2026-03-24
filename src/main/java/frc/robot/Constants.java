@@ -48,7 +48,7 @@ public final class Constants {
   }
 
   public static class HopperConstants {
-    public static final double HOPPER_SPEED = 0.750;
+    public static final double HOPPER_SPEED = 1.0;
 
     // motor id 15
     public static final Integer kHopperMotorId = 15;

@@ -3,45 +3,45 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.804208273894435,
-        "y": 4.455506419400857
+        "x": 0.8561483594864476,
+        "y": 4.882482168330956
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.77956017756113,
-        "y": 5.479921881336215
+        "x": 1.8561483594864476,
+        "y": 4.882482168330956
       },
       "isLocked": false,
-      "linkedName": "Center (Top)"
+      "linkedName": "Tower (Left)"
     },
     {
       "anchor": {
-        "x": 7.623067047075606,
-        "y": 7.094992867332382
+        "x": 2.266462196861626,
+        "y": 5.775249643366619
       },
       "prevControl": {
-        "x": 7.886662038055384,
-        "y": 6.8464604188629
+        "x": 2.339486447931526,
+        "y": 5.403263195435093
       },
       "nextControl": {
-        "x": 6.985932218215251,
-        "y": 7.695720060338856
+        "x": 2.1934379457917252,
+        "y": 6.147236091298145
       },
       "isLocked": false,
-      "linkedName": "Top of Pile"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 4.19432239657632,
-        "y": 7.4572753209700435
+        "x": 0.6361911554921535,
+        "y": 5.982268188302426
       },
       "prevControl": {
-        "x": 5.398918536312595,
-        "y": 7.366814574648946
+        "x": 1.101982881597717,
+        "y": 5.969329529243937
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Top Trench (Turret Position)"
+      "linkedName": "Depot (End)"
     }
   ],
   "rotationTargets": [],
@@ -58,13 +58,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -179.8075956334167
   },
   "reversed": false,
-  "folder": "Center To Inside",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -90.15084991432975
+    "rotation": 164.05460409907712
   },
   "useDefaultConstraints": true
 }
