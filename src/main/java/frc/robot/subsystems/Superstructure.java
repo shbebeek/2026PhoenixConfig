@@ -377,11 +377,11 @@ public class Superstructure extends SubsystemBase{
     // auto commands
     // intake
     public Command autoDeploy(){
-        return intake.deployIntake().withTimeout(3.0);
+        return intake.deployIntake().withTimeout(1.0);
     }
 
     public Command autoRetract(){
-        return intake.returnIntake().withTimeout(2.0);
+        return intake.returnIntake().withTimeout(1.5);
     }
 
     public Command intakeAuto(){
