@@ -5,39 +5,47 @@
     "data": {
       "commands": [
         {
-          "type": "named",
-          "data": {
-            "name": "shootClose"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 1.0
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "feedShooter"
-          }
-        },
-        {
           "type": "parallel",
           "data": {
             "commands": [
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Simple Forward"
+                  "pathName": "Top Trench To Hub Forward"
                 }
               },
               {
-                "type": "named",
+                "type": "sequential",
                 "data": {
-                  "name": "deployIntake"
+                  "commands": [
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "manualShoot"
+                      }
+                    },
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.5
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "feedShooter"
+                      }
+                    }
+                  ]
                 }
-              },
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
               {
                 "type": "sequential",
                 "data": {
@@ -56,14 +64,52 @@
                     }
                   ]
                 }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Hub Forward To Center (Top)"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "deployIntake"
+                }
               }
             ]
           }
         },
         {
-          "type": "wait",
+          "type": "parallel",
           "data": {
-            "waitTime": 1.0
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Center (Top) to Hub (Forward)"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 4.0
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "feedShooter"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         {
@@ -73,25 +119,19 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "shootClose"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
                   "name": "feedShooter"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "stopIntake"
                 }
               },
               {
                 "type": "sequential",
                 "data": {
                   "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 2.0
+                      }
+                    },
                     {
                       "type": "named",
                       "data": {
@@ -103,49 +143,11 @@
                       "data": {
                         "name": "autoPivotStop"
                       }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 2.0
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Simple Forward"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "deployIntake"
-                }
-              },
-              {
-                "type": "sequential",
-                "data": {
-                  "commands": [
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "autoDeploy"
-                      }
                     },
                     {
                       "type": "named",
                       "data": {
-                        "name": "autoPivotStop"
+                        "name": "stopIntake"
                       }
                     }
                   ]
@@ -155,27 +157,15 @@
           }
         },
         {
-          "type": "wait",
-          "data": {
-            "waitTime": 1.0
-          }
-        },
-        {
           "type": "named",
           "data": {
-            "name": "stopIntake"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "stopShooting"
+            "name": "feedShooter"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "Tests",
+  "folder": null,
   "choreoAuto": false
 }

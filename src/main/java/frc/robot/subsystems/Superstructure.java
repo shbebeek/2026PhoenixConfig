@@ -381,7 +381,7 @@ public class Superstructure extends SubsystemBase{
     }
 
     public Command autoRetract(){
-        return intake.returnIntake().withTimeout(1.5);
+        return intake.returnIntake().withTimeout(1.0);
     }
 
     public Command intakeAuto(){
@@ -432,6 +432,6 @@ public class Superstructure extends SubsystemBase{
     }
 
     public Command feedAuto(){
-        return feedAllCommand().withTimeout(8);
+        return feedAllCommand().withTimeout(4);
     }
 }
