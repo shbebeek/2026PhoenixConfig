@@ -149,5 +149,10 @@ public final class Constants {
     // movement speeds for adjusting target pose
     public static final double TRANSLATION_SPEED = 0.05; // meters per periodic cycle
     public static final double ROTATION_SPEED = 2.0; // degrees per periodic cycle
+
+    private static final double kP = 0.0001;
+    private static final double kD = 0.0000;
+    private static final double angleTolerance = 1;
+    private static final double MAX_POWER = 0.6;
   }
 }
