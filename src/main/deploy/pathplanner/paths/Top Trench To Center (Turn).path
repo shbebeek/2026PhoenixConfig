@@ -1,0 +1,115 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 4.19432239657632,
+        "y": 7.4572753209700435
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 5.19432239657632,
+        "y": 7.4572753209700435
+      },
+      "isLocked": false,
+      "linkedName": "Top Trench (Turret Position)"
+    },
+    {
+      "anchor": {
+        "x": 7.774867357866043,
+        "y": 6.92509509858631
+      },
+      "prevControl": {
+        "x": 7.761026785714286,
+        "y": 7.216643357049852
+      },
+      "nextControl": {
+        "x": 7.810689302869501,
+        "y": 6.1705146111597795
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.804208273894435,
+        "y": 4.455506419400857
+      },
+      "prevControl": {
+        "x": 7.805178690228113,
+        "y": 4.705504535978041
+      },
+      "nextControl": {
+        "x": 7.803237857560758,
+        "y": 4.205508302823673
+      },
+      "isLocked": false,
+      "linkedName": "Center (Top)"
+    },
+    {
+      "anchor": {
+        "x": 6.419771754636234,
+        "y": 4.455506419400857
+      },
+      "prevControl": {
+        "x": 7.449496655084201,
+        "y": 4.331939431347104
+      },
+      "nextControl": {
+        "x": 6.096305278174036,
+        "y": 4.49432239657632
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 6.303323823109842,
+        "y": 7.120870185449359
+      },
+      "prevControl": {
+        "x": 6.458587731811695,
+        "y": 6.046961483594865
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1,
+      "rotationDegrees": -90.01828190355582
+    },
+    {
+      "waypointRelativePos": 2,
+      "rotationDegrees": -90.0
+    },
+    {
+      "waypointRelativePos": 3,
+      "rotationDegrees": 90.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 90.0
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}
