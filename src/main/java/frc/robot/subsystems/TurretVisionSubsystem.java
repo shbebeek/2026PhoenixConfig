@@ -18,7 +18,7 @@ public class TurretVisionSubsystem extends SubsystemBase {
     // =============================
     // HARDWARE
     // =============================
-    private final SparkMax turretMotor = new SparkMax(Constants.TurretConstants.kTurretMotorId, MotorType.kBrushless);
+    private final SparkMax turretMotor = new SparkMax(Constants.TurretConstants.kTurretMotorIdFake, MotorType.kBrushless);
 
     // =============================
     // CONTROL
