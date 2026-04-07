@@ -69,6 +69,7 @@ public final class Constants {
 
     // motor id 17
     public static final Integer kTurretMotorId = 17;
+    public static final Integer kTurretMotorIdFake = 24;
     public static final Boolean kTurretMotorInverted = false;
 
     public static final Angle TURRET_TOLERANCE = Degrees.of(1);

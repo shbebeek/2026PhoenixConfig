@@ -27,6 +27,8 @@ public class Superstructure extends SubsystemBase{
     public final ClimberSubsystem climber;
     public final HoodSubsystem hood;
 
+    public final TurretVisionSubsystem turretVision;
+
     // triggers for readiness checks
     private final Trigger isShooterAtSpeed;
     private final Trigger isTurretAtAngle;
@@ -41,7 +43,7 @@ public class Superstructure extends SubsystemBase{
     private Translation3d aimPoint = Constants.AimPoints.RED_HUB.value;
 
     public Superstructure(IntakeSubsystem intake, HopperSubsystem hopper, FeederSubsystem feeder,
-        TurretSubsystem turret, ShooterSubsystem shooter, ClimberSubsystem climber, HoodSubsystem hood){
+        TurretSubsystem turret, ShooterSubsystem shooter, ClimberSubsystem climber, HoodSubsystem hood, TurretVisionSubsystem turretVision){
         this.intake = intake;
         this.hopper = hopper;
         this.feeder = feeder;
@@ -49,6 +51,8 @@ public class Superstructure extends SubsystemBase{
         this.shooter = shooter;
         this.climber = climber;
         this.hood = hood;
+
+        this.turretVision = turretVision;
 
         // create triggers for checking if mechs at targets
         this.isShooterAtSpeed = new Trigger(
@@ -71,6 +75,14 @@ public class Superstructure extends SubsystemBase{
         return Commands.parallel(
             shooter.stop().asProxy(),
             turret.set(0).asProxy()).withName("Superstructure.StopAllShooting");
+    }
+
+    public Command visionTurretAim(){
+        return turretVision.autoAimCommand();
+    }
+
+    public Command visionTurretStop(){
+        return Commands.run(() -> turretVision.stop());
     }
 
     /**

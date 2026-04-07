@@ -86,6 +86,11 @@ public class ShooterSubsystem extends SubsystemBase{
         return setSpeed(RPM.of(0));
     }
 
+    public Command mediumBumpUp(){
+        //int newSpeed = 0;
+        return setSpeed(RPM.of(0));
+    }
+
     public AngularVelocity getSpeed(){
         return shooter.getSpeed();
     }

@@ -38,6 +38,7 @@ import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 import frc.robot.subsystems.Superstructure;
 import frc.robot.subsystems.TurretSubsystem;
+import frc.robot.subsystems.TurretVisionSubsystem;
 
 public class RobotContainer {
     private double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
@@ -64,8 +65,9 @@ public class RobotContainer {
     private final ClimberSubsystem climber = new ClimberSubsystem();
 
     private final HoodSubsystem hood = new HoodSubsystem();
+    private final TurretVisionSubsystem turretVision = new TurretVisionSubsystem(drivetrain);
 
-    private final Superstructure superstructure = new Superstructure(intake, hopper, feeder, turret, shooter, climber, hood);
+    private final Superstructure superstructure = new Superstructure(intake, hopper, feeder, turret, shooter, climber, hood, turretVision);
 
     private final SendableChooser<Command> autoChooser;
 

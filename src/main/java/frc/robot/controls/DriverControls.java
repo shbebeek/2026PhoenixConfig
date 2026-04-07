@@ -104,8 +104,8 @@ public class DriverControls {
             controller.rightTrigger().whileTrue(superstructure.feedAllCommand().finallyDo(() -> superstructure.stopFeedingAllCommand().schedule()));
 
             //controller.leftBumper().whileTrue(superstructure.intakeCommand().finallyDo(() -> superstructure.stopIntakeCommand().schedule()).withName("DriverControls.DeployIntake"));
-            controller.povDown().whileTrue(superstructure.deployIntakeCommand().finallyDo(() -> superstructure.stopIntakePivot().schedule()).withName("DriverControls.DeployIntake"));
-            controller.povUp().whileTrue(superstructure.returnIntakeCommand().finallyDo(() -> superstructure.stopIntakePivot().schedule()));
+            controller.rightBumper().whileTrue(superstructure.deployIntakeCommand().finallyDo(() -> superstructure.stopIntakePivot().schedule()).withName("DriverControls.DeployIntake"));
+            controller.leftBumper().whileTrue(superstructure.returnIntakeCommand().finallyDo(() -> superstructure.stopIntakePivot().schedule()));
             
             /*controller.rightBumper().toggleOnTrue(new ShootOnTheMoveCommand(drivetrain, superstructure, () -> superstructure.getAimPoint())
                 .ignoringDisable(true)
@@ -116,16 +116,16 @@ public class DriverControls {
             controller.b().whileTrue(superstructure.shootCloseCommand());
             controller.a().whileTrue(superstructure.shootFarCommand());
             controller.start().whileTrue(superstructure.shootReallyFarCommand());
-            controller.povRight().whileTrue(superstructure.stopAllShootingCommand());
+            controller.povUp().whileTrue(superstructure.stopAllShootingCommand());
 
             //() -> superstructure.stopAllShootingCommand().schedule())
             //controller.leftTrigger().whileTrue(superstructure.aimCommand(superstructure.getTargetShooterSpeed(), superstructure.getTargetTurretAngle(), superstructure.getTargetHoodAngle()).finallyDo(() -> superstructure.stopAllShootingCommand().schedule()));
 
             //controller.povUp().onTrue(superstructure.setTurretForward().finallyDo(() -> superstructure.stopTurret().schedule()).withName("DriverControls.SetTurretForward"));
-            controller.rightBumper().whileTrue(superstructure.rotateTurretLeft().finallyDo(() -> superstructure.stopTurret().schedule()));
-            controller.leftBumper().whileTrue(superstructure.rotateTurretRight().finallyDo(() -> superstructure.stopTurret().schedule()));
+            controller.povLeft().whileTrue(superstructure.rotateTurretLeft().finallyDo(() -> superstructure.stopTurret().schedule()));
+            controller.povRight().whileTrue(superstructure.rotateTurretRight().finallyDo(() -> superstructure.stopTurret().schedule()));
 
-            controller.povLeft().whileTrue(superstructure.ejectCommand().finallyDo(() -> superstructure.stopIntakeCommand().schedule()));       
+            controller.povDown().whileTrue(superstructure.visionTurretAim().finallyDo(() -> superstructure.visionTurretStop().schedule()));       
             //controller.povDown().onTrue(Commands.runOnce(drivetrain::zeroGyro));
 
             //controller.y().whileTrue(superstructure.moveClimberDown());

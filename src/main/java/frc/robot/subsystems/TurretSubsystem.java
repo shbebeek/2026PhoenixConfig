@@ -39,7 +39,7 @@ import yams.motorcontrollers.SmartMotorControllerConfig.TelemetryVerbosity;
 import yams.motorcontrollers.local.SparkWrapper;
 
 public class TurretSubsystem extends SubsystemBase{
-    private SparkMax turretController = new SparkMax(Constants.TurretConstants.kTurretMotorId, MotorType.kBrushless);
+    private SparkMax turretController = new SparkMax(Constants.TurretConstants.kTurretMotorIdFake, MotorType.kBrushless);
 
     private SmartMotorControllerConfig smcConfig = new SmartMotorControllerConfig(this)
         .withControlMode(ControlMode.CLOSED_LOOP)

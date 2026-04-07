@@ -23,7 +23,7 @@ public class TurretVisionSubsystem extends SubsystemBase {
     // =============================
     // CONTROL
     // =============================
-    private final PIDController turretPID = new PIDController(0.02, 0.0, 0.001);
+    private final PIDController turretPID = new PIDController(0.005, 0.0, 0.0001);
 
     // Simulated encoder position (replace with real encoder if you have one)
     private double turretAngleDeg = turretMotor.getEncoder().getPosition();
@@ -36,7 +36,7 @@ public class TurretVisionSubsystem extends SubsystemBase {
     // =============================
     // FIELD CONSTANTS (EDIT THIS)
     // =============================
-    private static final Translation2d HUB_POSITION = new Translation2d(8.25, 4.1);
+    private static final Translation2d HUB_POSITION = new Translation2d(-6.0, 0.1);
 
     public TurretVisionSubsystem(CommandSwerveDrivetrain drivetrain) {
         this.drivetrain = drivetrain;
