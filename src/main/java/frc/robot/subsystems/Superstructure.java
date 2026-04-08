@@ -129,6 +129,10 @@ public class Superstructure extends SubsystemBase{
         return aimCommand(getTargetShooterSpeed(), getTargetTurretAngle(), getTargetHoodAngle()).andThen(waitUntilReadyCommand()).withName("Superstructure.AimAndWait");
     }
 
+    public Command aimTurretVision(){
+        return turret.autoAimCommand();
+    }
+
     // manual turret control
     public Command setTurretForward(){
         return turret.setAngle(Degrees.of(0)).withName("Superstructure.SetTurretForward");

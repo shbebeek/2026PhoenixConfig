@@ -11,32 +11,19 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.*;
 import frc.robot.Constants;
-import frc.robot.subsystems.CommandSwerveDrivetrain; // your phoenix drivetrain
+import frc.robot.subsystems.CommandSwerveDrivetrain;
 
 public class TurretVisionSubsystem extends SubsystemBase {
-
-    // =============================
-    // HARDWARE
-    // =============================
     private final SparkMax turretMotor = new SparkMax(Constants.TurretConstants.kTurretMotorIdFake, MotorType.kBrushless);
 
-    // =============================
-    // CONTROL
-    // =============================
     private final PIDController turretPID = new PIDController(0.005, 0.0, 0.0001);
 
-    // Simulated encoder position (replace with real encoder if you have one)
     private double turretAngleDeg = turretMotor.getEncoder().getPosition();
 
-    // =============================
-    // DEPENDENCIES
-    // =============================
     private final CommandSwerveDrivetrain drivetrain;
 
-    // =============================
-    // FIELD CONSTANTS (EDIT THIS)
-    // =============================
-    private static final Translation2d HUB_POSITION = new Translation2d(-6.0, 0.1);
+    private static final Translation3d RED_HUB = new Translation3d(11.938, 4.034536, 1.5748);
+    private static final Translation3d BLUE_HUB = new Translation3d(4.5974, 4.034536, 1.5748);
 
     public TurretVisionSubsystem(CommandSwerveDrivetrain drivetrain) {
         this.drivetrain = drivetrain;
@@ -45,20 +32,12 @@ public class TurretVisionSubsystem extends SubsystemBase {
         turretPID.setTolerance(1.0);
     }
 
-    // =============================
-    // PERIODIC
-    // =============================
     @Override
     public void periodic() {
         SmartDashboard.putNumber("Turret Angle", getTurretAngle());
     }
 
-    // =============================
-    // AUTO AIM LOGIC
-    // =============================
     public void autoAim() {
-
-        // 1. Inject vision into swerve pose estimator
         if (Limelight.hasTarget()) {
             Pose2d visionPose = Limelight.getPose2d();
             double timestamp = Timer.getFPGATimestamp() - Limelight.getLatencySeconds();
@@ -66,16 +45,13 @@ public class TurretVisionSubsystem extends SubsystemBase {
             drivetrain.addVisionMeasurement(visionPose, timestamp);
         }
 
-        // 2. Get fused pose (swerve + vision)
         Pose2d robotPose = drivetrain.getState().Pose;
 
-        // 3. Compute angle to hub
-        double dx = HUB_POSITION.getX() - robotPose.getX();
-        double dy = HUB_POSITION.getY() - robotPose.getY();
+        double dx = RED_HUB.getX() - robotPose.getX();
+        double dy = RED_HUB.getY() - robotPose.getY();
 
         double targetAngle = Math.toDegrees(Math.atan2(dy, dx));
 
-        // 4. Convert to turret-relative
         double robotHeading = robotPose.getRotation().getDegrees();
         double turretSetpoint = targetAngle - robotHeading;
 
@@ -83,29 +59,19 @@ public class TurretVisionSubsystem extends SubsystemBase {
             MathUtil.angleModulus(Math.toRadians(turretSetpoint))
         );
 
-        // 5. PID control
         double output = turretPID.calculate(getTurretAngle(), turretSetpoint);
 
         setTurretMotor(output);
 
-        // =============================
-        // DEBUG
-        // =============================
         SmartDashboard.putNumber("Robot X", robotPose.getX());
         SmartDashboard.putNumber("Robot Y", robotPose.getY());
         SmartDashboard.putNumber("Target Angle", targetAngle);
         SmartDashboard.putNumber("Turret Setpoint", turretSetpoint);
     }
 
-    // =============================
-    // MOTOR CONTROL
-    // =============================
     private void setTurretMotor(double output) {
         output = MathUtil.clamp(output, -0.5, 0.5);
-
         turretMotor.set(output);
-
-        // Replace with real encoder feedback
         turretAngleDeg = turretMotor.getEncoder().getPosition();
     }
 
@@ -117,19 +83,12 @@ public class TurretVisionSubsystem extends SubsystemBase {
         return turretAngleDeg;
     }
 
-    // =============================
-    // AUTO AIM COMMAND
-    // =============================
     public Command autoAimCommand() {
         return new RunCommand(() -> autoAim(), this)
             .finallyDo(() -> stop());
     }
 
-    // =============================
-    // LIMELIGHT HELPER (MegaTag2)
-    // =============================
     public static class Limelight {
-
         private static final NetworkTable table =
             NetworkTableInstance.getDefault().getTable("limelight");
 

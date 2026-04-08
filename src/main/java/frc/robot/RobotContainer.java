@@ -59,7 +59,7 @@ public class RobotContainer {
     private final IntakeSubsystem intake = new IntakeSubsystem();
     private final HopperSubsystem hopper = new HopperSubsystem();
     private final FeederSubsystem feeder = new FeederSubsystem();
-    private final TurretSubsystem turret = new TurretSubsystem();
+    private final TurretSubsystem turret = new TurretSubsystem(drivetrain);
     private final ShooterSubsystem shooter = new ShooterSubsystem();
     private final ClimberSubsystem climber = new ClimberSubsystem();
 
