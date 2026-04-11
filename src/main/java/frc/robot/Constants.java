@@ -52,7 +52,7 @@ public final class Constants {
 
     // motor id 15
     public static final Integer kHopperMotorId = 15;
-    public static final Boolean kHopperMotorInverted = false; // edit inversions when doing configuration
+    public static final Boolean kHopperMotorInverted = true; // edit inversions when doing configuration
   }
 
   public static class FeederConstants {
@@ -92,7 +92,7 @@ public final class Constants {
     public static final int SHOOTER_SPEED_FAR = 3250;
     public static final int SHOOTER_SPEED_MIDDLE = 2750;
     public static final int SHOOTER_SPEED_CLOSE = 2000;
-    public static final int SHOOTER_SPEED_REALLY_FAR = 4000;
+    public static final int SHOOTER_SPEED_REALLY_FAR = 3500;
   }
 
   public static final class ClimberConstants {

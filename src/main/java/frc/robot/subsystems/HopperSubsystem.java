@@ -28,7 +28,7 @@ import yams.motorcontrollers.SmartMotorControllerConfig.TelemetryVerbosity;
 import yams.motorcontrollers.local.SparkWrapper;
 
 public class HopperSubsystem extends SubsystemBase {
-  private SparkMax hopperController = new SparkMax(Constants.HopperConstants.kHopperMotorId, MotorType.kBrushed);
+  private SparkMax hopperController = new SparkMax(Constants.HopperConstants.kHopperMotorId, MotorType.kBrushless);
 
   private SmartMotorControllerConfig smcConfig = new SmartMotorControllerConfig(this)
     .withControlMode(ControlMode.OPEN_LOOP)
@@ -38,7 +38,7 @@ public class HopperSubsystem extends SubsystemBase {
     .withIdleMode(MotorMode.COAST)
     .withStatorCurrentLimit(Amps.of(40));
   
-  private SmartMotorController smc = new SparkWrapper(hopperController, DCMotor.getCIM(1), smcConfig);
+  private SmartMotorController smc = new SparkWrapper(hopperController, DCMotor.getNEO(1), smcConfig);
 
   private final FlyWheelConfig hopperConfig = new FlyWheelConfig(smc)
     .withDiameter(Inches.of(4))

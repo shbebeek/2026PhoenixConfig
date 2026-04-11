@@ -11,6 +11,7 @@ import static edu.wpi.first.units.Units.RPM;
 import static edu.wpi.first.units.Units.Seconds;
 
 import com.revrobotics.spark.SparkMax;
+import com.ctre.phoenix6.hardware.TalonFX;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
@@ -32,21 +33,22 @@ import yams.motorcontrollers.SmartMotorControllerConfig.ControlMode;
 import yams.motorcontrollers.SmartMotorControllerConfig.MotorMode;
 import yams.motorcontrollers.SmartMotorControllerConfig.TelemetryVerbosity;
 import yams.motorcontrollers.local.SparkWrapper;
+import yams.motorcontrollers.remote.TalonFXWrapper;
 
 public class IntakeSubsystem extends SubsystemBase{
-    private SparkMax rollerController = new SparkMax(Constants.IntakeConstants.kRollerMotorId,MotorType.kBrushless);
+    private final TalonFX rollerController = new TalonFX(Constants.IntakeConstants.kRollerMotorId);
     private SmartMotorControllerConfig smcConfig = new SmartMotorControllerConfig(this)
         .withControlMode(ControlMode.OPEN_LOOP)
         .withTelemetry("IntakeRollerMotor", TelemetryVerbosity.HIGH)
-        .withGearing(new MechanismGearing(GearBox.fromReductionStages(1))) // Direct drive, adjust if geared
+        .withGearing(new MechanismGearing(GearBox.fromReductionStages(4))) // Direct drive, adjust if geared
         .withMotorInverted(Constants.IntakeConstants.kRollerMotorInverted)
         .withIdleMode(MotorMode.COAST)
         .withStatorCurrentLimit(Amps.of(40));
 
-    private SmartMotorController smc = new SparkWrapper(rollerController,DCMotor.getNEO(1),smcConfig);
+    private SmartMotorController smc = new TalonFXWrapper(rollerController,DCMotor.getKrakenX60(1),smcConfig);
 
     private final FlyWheelConfig intakeConfig = new FlyWheelConfig(smc)
-        .withDiameter(Inches.of(4))
+        .withDiameter(Inches.of(1.125))
         .withMass(Pounds.of(0.5))
         .withUpperSoftLimit(RPM.of(6000))
         .withLowerSoftLimit(RPM.of(-6000))

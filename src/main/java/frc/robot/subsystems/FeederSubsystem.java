@@ -30,7 +30,7 @@ public class FeederSubsystem extends SubsystemBase{
         .withControlMode(ControlMode.OPEN_LOOP)
         .withTelemetry("FeederMotor",TelemetryVerbosity.HIGH)
         .withGearing(new MechanismGearing(GearBox.fromReductionStages(4))) // 4:1 gear reduction
-        .withMotorInverted(Constants.HopperConstants.kHopperMotorInverted)
+        .withMotorInverted(Constants.FeederConstants.kFeederMotorInverted)
         .withIdleMode(MotorMode.COAST)
         .withStatorCurrentLimit(Amps.of(20));
     

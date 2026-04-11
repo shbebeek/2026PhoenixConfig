@@ -162,8 +162,8 @@ public class TurretSubsystem extends SubsystemBase{
 
         Pose2d robotPose = drivetrain.getState().Pose;
 
-        double dx = RED_HUB.getX() - robotPose.getX();
-        double dy = RED_HUB.getY() - robotPose.getY();
+        double dx = BLUE_HUB.getX() - robotPose.getX();
+        double dy = BLUE_HUB.getY() - robotPose.getY();
 
         double targetAngle = Math.toDegrees(Math.atan2(dy, dx));
 
