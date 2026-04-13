@@ -89,6 +89,14 @@ public class IntakeSubsystem extends SubsystemBase{
         
     }
 
+    public Command setIntakeBrakeCommand(){
+        return Commands.runOnce(() -> intakePivotController.setIdleMode(MotorMode.BRAKE));
+    }
+
+    public Command setIntakeCoastCommand(){
+        return Commands.runOnce(() -> intakePivotController.setIdleMode(MotorMode.COAST));
+    }
+
     // run intake (need stopIntake)
     public Command intakeCommand(){
         return intake.set(-Constants.IntakeConstants.INTAKE_SPEED).withName("Intake.Run");

@@ -7,6 +7,7 @@ import static edu.wpi.first.units.Units.RPM;
 import java.util.function.Supplier;
 
 import frc.robot.Constants;
+import yams.motorcontrollers.SmartMotorControllerConfig.MotorMode;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Translation3d;
@@ -229,6 +230,14 @@ public class Superstructure extends SubsystemBase{
         ).withName("Supersctructure.IntakeEject");
     }
 
+    public Command setIntakeBrakeCommand(){
+        return intake.setIntakeBrakeCommand();
+    }
+
+    public Command setIntakeCoastCommand(){
+        return intake.setIntakeCoastCommand();
+    }
+
     // run hopper forward while held
     public Command hopperFeedCommand(){
         return hopper.feedCommand().withName("Superstructure.Feed");
@@ -318,6 +327,22 @@ public class Superstructure extends SubsystemBase{
     // just in case
     public Command shootReallyFarCommand(){
         return shooter.spinUp(-Constants.ShooterConstants.SHOOTER_SPEED_REALLY_FAR).withName("Superstructure.ShootSlow");
+    }
+
+    public Command mediumShooterBumpUp(){
+        return shooter.mediumBumpUp();
+    }
+
+    public Command mediumShooterBumpDown(){
+        return shooter.mediumBumpDown();
+    }
+
+    public Command lowShooterBumpDown(){
+        return shooter.lowBumpDown();
+    }
+
+    public Command lowShooterBumpUp(){
+        return shooter.lowBumpUp();
     }
 
     // re-zero both intake pivot and turret

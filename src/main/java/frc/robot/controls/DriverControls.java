@@ -125,7 +125,9 @@ public class DriverControls {
             controller.povLeft().whileTrue(superstructure.rotateTurretLeft().finallyDo(() -> superstructure.stopTurret().schedule()));
             controller.povRight().whileTrue(superstructure.rotateTurretRight().finallyDo(() -> superstructure.stopTurret().schedule()));
 
-            controller.povDown().whileTrue(superstructure.aimTurretVision().finallyDo(() -> superstructure.stopTurret().schedule()));       
+            controller.povDown().whileTrue(superstructure.ejectCommand().finallyDo(() -> superstructure.stopIntakeCommand().schedule()));       
+            controller.rightStick().whileTrue(superstructure.setIntakeBrakeCommand());
+            controller.leftStick().whileTrue(superstructure.setIntakeCoastCommand());
             //controller.povDown().onTrue(Commands.runOnce(drivetrain::zeroGyro));
 
             //controller.y().whileTrue(superstructure.moveClimberDown());

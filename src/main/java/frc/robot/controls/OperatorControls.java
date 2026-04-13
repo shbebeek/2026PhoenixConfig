@@ -21,7 +21,9 @@ public class OperatorControls {
             controller.a().whileTrue(superstructure.shootFarCommand());
             controller.rightBumper().whileTrue(superstructure.rotateTurretLeft().finallyDo(() -> superstructure.stopTurret().schedule()));
             controller.leftBumper().whileTrue(superstructure.rotateTurretRight().finallyDo(() -> superstructure.stopTurret().schedule()));
-            // TODO: code in the vision for auto-targeting to tower (button x)
-            controller.rightTrigger().whileTrue(superstructure.ejectCommand().finallyDo(() -> superstructure.stopIntakeCommand().schedule()));        }
+            controller.rightTrigger().whileTrue(superstructure.ejectCommand().finallyDo(() -> superstructure.stopIntakeCommand().schedule()));
+            controller.leftStick().onTrue(superstructure.mediumShooterBumpUp());
+            controller.rightStick().onTrue(superstructure.mediumShooterBumpDown());
+        }
     }
 }

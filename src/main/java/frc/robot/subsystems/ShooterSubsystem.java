@@ -22,6 +22,7 @@ import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.units.measure.Distance;
 import edu.wpi.first.units.measure.LinearVelocity;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -62,6 +63,8 @@ public class ShooterSubsystem extends SubsystemBase{
     
     private final FlyWheel shooter = new FlyWheel(shooterConfig);
 
+    private int currentSetpoint = -Constants.ShooterConstants.SHOOTER_SPEED;
+
     public ShooterSubsystem(){
 
     }
@@ -87,8 +90,23 @@ public class ShooterSubsystem extends SubsystemBase{
     }
 
     public Command mediumBumpUp(){
-        //int newSpeed = 0;
-        return setSpeed(RPM.of(0));
+        currentSetpoint -= 50;
+        return setSpeed(RPM.of(currentSetpoint));
+    }
+
+    public Command mediumBumpDown(){
+        currentSetpoint += 50;
+        return setSpeed(RPM.of(currentSetpoint));
+    }
+
+    public Command lowBumpUp(){
+        currentSetpoint -= 25;
+        return setSpeed(RPM.of(currentSetpoint));
+    }
+
+    public Command lowBumpDown(){
+        currentSetpoint += 25;
+        return setSpeed(RPM.of(currentSetpoint));
     }
 
     public AngularVelocity getSpeed(){
@@ -102,6 +120,8 @@ public class ShooterSubsystem extends SubsystemBase{
     @Override
     public void periodic(){
         //Logger.recordOutput("Shooter/Velocity", motorController.getVelocity().getValue());
+        SmartDashboard.putNumber("Current Modified Setpoint",currentSetpoint);
+        SmartDashboard.putNumber("Tower Shooting Setpoint",-Constants.ShooterConstants.SHOOTER_SPEED);
     }
 
     @Override
