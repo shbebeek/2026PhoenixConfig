@@ -3,71 +3,71 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.804208273894435,
-        "y": 4.455506419400857
+        "x": 5.939056641751463,
+        "y": 3.6476354166666667
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.460483319767231,
-        "y": 5.9328183192082395
+        "x": 5.9626180002115055,
+        "y": 3.896522665009199
       },
       "isLocked": false,
-      "linkedName": "Center (Top)"
+      "linkedName": "Hub (Center of Field)"
     },
     {
       "anchor": {
-        "x": 7.28666191155492,
-        "y": 7.405520684736091
+        "x": 5.842672743055556,
+        "y": 7.465840350115741
       },
       "prevControl": {
-        "x": 8.0603937232525,
-        "y": 6.869860199714694
+        "x": 6.092668177005069,
+        "y": 7.464329388701759
       },
       "nextControl": {
-        "x": 7.081113863643975,
-        "y": 7.547823179443668
+        "x": 5.50313333965069,
+        "y": 7.467892511345113
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.4734807417974314,
-        "y": 7.405520684736091
+        "x": 3.642948423032408,
+        "y": 7.465840350115741
       },
       "prevControl": {
-        "x": 2.8357631954350926,
-        "y": 7.431398002853067
+        "x": 3.966784157517949,
+        "y": 7.516575376972332
       },
       "nextControl": {
-        "x": 1.6379197129407146,
-        "y": 7.345837754103468
+        "x": 3.364038049768519,
+        "y": 7.422143735532408
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.4772039942938655,
-        "y": 4.753095577746078
+        "x": 3.0067887008101852,
+        "y": 6.900015118634259
       },
       "prevControl": {
-        "x": 1.5472303418153872,
-        "y": 5.4410012689498
+        "x": 3.414951822916667,
+        "y": 7.365193793402778
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Hub (Forward)"
+      "linkedName": "Hub Out"
     }
   ],
   "rotationTargets": [
     {
       "waypointRelativePos": 1,
-      "rotationDegrees": 0.0
+      "rotationDegrees": -179.70982230570692
     },
     {
       "waypointRelativePos": 2,
-      "rotationDegrees": 0.0
+      "rotationDegrees": 179.61941769001407
     }
   ],
   "constraintZones": [],
@@ -83,10 +83,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 166.82744657667317
+    "rotation": 124.4710412323431
   },
   "reversed": false,
-  "folder": "Center To Inside",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
     "rotation": -89.1907463869859
