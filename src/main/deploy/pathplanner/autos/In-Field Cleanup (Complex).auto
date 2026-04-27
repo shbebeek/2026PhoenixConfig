@@ -9,15 +9,15 @@
           "data": {
             "commands": [
               {
-                "type": "path",
-                "data": {
-                  "pathName": "Hub (Middle) To Tower (Left)"
-                }
-              },
-              {
                 "type": "named",
                 "data": {
                   "name": "manualShoot"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Hub (Middle) To Tower (Left)"
                 }
               }
             ]
@@ -53,6 +53,37 @@
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "deployIntake"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Tower (Right) To Outpost"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Outpost To Tower (Right)"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "feedShooter"
           }
         }
       ]
